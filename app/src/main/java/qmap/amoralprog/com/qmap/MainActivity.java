@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new ScannerQRFragment())
+                    .replace(R.id.container, new MainFragment())
                     .commitNow();
         }
 
