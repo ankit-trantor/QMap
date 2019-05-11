@@ -3,15 +3,25 @@ package qmap.amoralprog.com.qmap.pojo;
 import com.google.android.gms.maps.model.LatLng;
 
 public class Point {
-    private String Help;
+    private String help;
+    private String answer;
     private LatLng point;
-    
+
+    public Point() {
+    }
+
+    public Point(String help, String answer, LatLng point) {
+        this.help = help;
+        this.answer = answer;
+        this.point = point;
+    }
+
     public String getHelp() {
-        return Help;
+        return this.help;
     }
 
     public void setHelp(String help) {
-        Help = help;
+        this.help = help;
     }
 
     public LatLng getPoint() {

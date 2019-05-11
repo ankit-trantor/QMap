@@ -18,7 +18,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
-        android:text="NAME"
+        android:text="IT companies quest"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,8 +30,7 @@
         android:layout_height="0dp"
         android:layout_margin="8dp"
         android:layout_weight="3"
-        android:text="descrition"
-        android:textSize="12sp"
+        android:text="How good you know IT?"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
