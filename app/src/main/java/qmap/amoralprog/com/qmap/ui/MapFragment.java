@@ -3,12 +3,15 @@ package qmap.amoralprog.com.qmap.ui;
 import android.annotation.SuppressLint;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +36,7 @@ import java.util.List;
 
 import qmap.amoralprog.com.qmap.R;
 import qmap.amoralprog.com.qmap.pojo.Point;
+import qmap.amoralprog.com.qmap.ui.main.MainFragment;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
@@ -57,9 +61,24 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
                 if(mViewModel.isCorrectAnswer(editText.getText().toString()))
                 {
-                    mViewModel.incPointIndex();
-                    mViewModel.setAllowed(true);
-                    mViewModel.prepareAsyncMapPoint();
+                    if(!mViewModel.isLastPoint()) {
+                        mViewModel.incPointIndex();
+                        mViewModel.setAllowed(true);
+                        mViewModel.prepareAsyncMapPoint();
+                        editText.setText("");
+                    } else {
+                        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+                        alertDialog.setTitle("Wow!");
+                        alertDialog.setMessage("You won!");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        getFragmentManager().beginTransaction().replace(R.id.container, new MainFragment()).commit();
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
                     helpLayout.setVisibility(View.GONE);
 
                 }

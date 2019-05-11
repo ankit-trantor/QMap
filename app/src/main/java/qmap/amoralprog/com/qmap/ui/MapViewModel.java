@@ -93,11 +93,15 @@ public class MapViewModel extends ViewModel {
         {
             list.add(builderList.pointIndexAt(pointIndex));
             pointMutableLiveData.postValue(list);
-            pointIndex++;
             isAllowed = false;
         }
 
     }
+    public boolean isLastPoint()
+    {
+        return (pointIndex +1) == builderList.getItemArrayList().get(0).getPointList().size();
+    }
+
     public boolean isCorrectAnswer(String str)
     {
         return builderList.pointIndexAt(pointIndex).getAnswer().toLowerCase().equals(str.toLowerCase());

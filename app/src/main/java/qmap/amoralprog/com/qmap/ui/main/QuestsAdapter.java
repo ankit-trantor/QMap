@@ -2,6 +2,7 @@ package qmap.amoralprog.com.qmap.ui.main;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +10,18 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import qmap.amoralprog.com.qmap.R;
+import qmap.amoralprog.com.qmap.ui.MapFragment;
 
 public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.QuestViewHolder> {
 
     private int numOfQuests;
+    private FragmentManager fragmentManager;
 
-    public QuestsAdapter(int numOfQuests) {this.numOfQuests = numOfQuests;}
+    public QuestsAdapter(int numOfQuests, FragmentManager fragmentManager)
+    {
+        this.numOfQuests = numOfQuests;
+        this.fragmentManager = fragmentManager;
+    }
 
     @NonNull
     @Override
@@ -26,8 +33,7 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.QuestViewH
         View view =inflater.inflate(layoutIdListItem, viewGroup, false);
 
         QuestViewHolder questViewHolder = new QuestViewHolder(view);
-        questViewHolder.name.setText("NAME FROM CONSTRUCTORE");
-        questViewHolder.description.setText("DESCRIPTION FORM CONSTRUCTOR");
+
 
         return questViewHolder;
     }
@@ -51,6 +57,13 @@ public class QuestsAdapter extends RecyclerView.Adapter<QuestsAdapter.QuestViewH
 
             name = itemView.findViewById(R.id.tv_name);
             description = itemView.findViewById(R.id.tv_description);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fragmentManager.beginTransaction().replace(R.id.container, new MapFragment()).commit();
+                }
+            });
+
         }
 
     }

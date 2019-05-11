@@ -33,7 +33,7 @@ public class MainFragment extends Fragment {
         questsList.setLayoutManager(layoutManager);
         questsList.setHasFixedSize(true);
 
-        questsAdapter = new QuestsAdapter(10);
+        questsAdapter = new QuestsAdapter(1, getFragmentManager());
         questsList.setAdapter(questsAdapter);
 
         return rootView;
