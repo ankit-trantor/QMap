@@ -1,4 +1,4 @@
-package qmap.amoralprog.com.qmap.ui.main;
+package qmap.amoralprog.com.qmap.pojo;
 import com.orm.SugarRecord;
 
 import java.util.List;

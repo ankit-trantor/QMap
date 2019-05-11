@@ -1,4 +1,4 @@
-package qmap.amoralprog.com.qmap.ui.main;
+package qmap.amoralprog.com.qmap.pojo;
 
 import com.google.android.gms.maps.model.LatLng;
 
