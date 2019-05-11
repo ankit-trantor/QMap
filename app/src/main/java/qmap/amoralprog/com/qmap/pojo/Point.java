@@ -6,7 +6,7 @@ public class Point {
     private String help;
     private String answer;
     private LatLng point;
-
+    private int score;
     public Point() {
     }
 
@@ -30,5 +30,13 @@ public class Point {
 
     public void setPoint(LatLng point) {
         this.point = point;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }
