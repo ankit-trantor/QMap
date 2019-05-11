@@ -7,7 +7,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class DistanceMapCalculator {
 
-    private final float MAXDISTANCE=15;//in metres
+    private final float MAXDISTANCE=15000;//in metres
     public static final float MINIMUM_BELIEVABLE_ACCURACY = 15.0F;
     private float getDistance(Location loc1, Location loc2) {
         return loc1.distanceTo(loc2);
